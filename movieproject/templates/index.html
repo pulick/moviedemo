@@ -1,0 +1,32 @@
+{% extends 'base.html' %}
+
+{% block body %}
+<div class="container">
+    <div class="row">
+        {% for movie in movie_list %}
+        <div class="col-md-6 mb-4">
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title">{{ movie.name }}</h5>
+                    <p class="card-text">{{ movie.desc }}</p>
+                </div>
+                <img src="{{ movie.img.url }}" class="card-img-top" alt="" height="200px">
+                <div class="card-footer">
+                    <a class="btn btn-warning" href="{% url 'movieapp:detail' movie.id %}">View Details</a>
+                </div>
+            </div>
+        </div>
+        {% if movie.additional_image %}
+        <div class="col-md-6 mb-4">
+            <div class="card">
+                <img src="{{ movie.additional_image.url }}" class="card-img-top" alt="" height="200px">
+                <div class="card-footer">
+<!--                    <a class="btn btn-warning" href="{% url 'movieapp:detail' movie.id %}">View Details</a>-->
+                </div>
+            </div>
+        </div>
+        {% endif %}
+        {% endfor %}
+    </div>
+</div>
+{% endblock %}

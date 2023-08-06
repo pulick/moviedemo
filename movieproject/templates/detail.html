@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+
+{% block body %}
+<div class="container" style="background-image: url('https://img.freepik.com/free-photo/abstract-digital-grid-black-background_53876-97647.jpg?w=1060&t=st=1689603551~exp=1689604151~hmac=5cd29e060122022d7ef41b1c8b39da7dd57be3571ea4b82055566a62218099d0'); background-size: cover; background-repeat: no-repeat; min-height: 100vh; display: flex; align-items: center;">
+    <div class="row">
+        <div class="col-md-6">
+            <img src="{{ movie.img.url }}" width="100" height="300">
+        </div>
+        <div class="col-md-6">
+            <h6>{{ movie.name }}</h6>
+            <h6>{{ movie.desc }}</h6>
+            <h4>{{ movie.year }}</h4>
+            <a class="btn btn-warning" href="{% url 'movieapp:update' movie.id %}">Update</a>
+            <a class="btn btn-danger" href="{% url 'movieapp:delete' movie.id %}">Delete</a>
+        </div>
+    </div>
+</div>
+{% endblock %}
